@@ -1,14 +1,25 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
+    {{#each comment as |comment| }}
+    <div>
+      <p>{{coment.content}}</p>
+      <h6>{{comment.user_id}}</h6>
+     <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
   </p>
   <p>
-    <button class="btn btn-primary">Fund this Project!</button>
+    <form class="form comment-form">
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <input class="form-input" type="text" id="comment-input" />
+      </div>
   </p>
 </div>
+
+<script src="./js/comment.js"></script>

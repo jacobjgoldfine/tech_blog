@@ -21,4 +21,4 @@ Comment.belongsTo(Bpost, {
 });
 
 
-module.exports = { User, Bpost };
+module.exports = { User, Bpost, Comment };
